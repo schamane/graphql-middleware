@@ -14,7 +14,7 @@ import { execute, subscribe } from 'graphql';
 import type { DataSource } from 'apollo-datasource';
 import { routeGrapqhlWS } from './ws';
 
-export type GrapqhContext = {
+export type GraphqlContext = {
   id: string;
   groups: string[];
   dataSources: Record<string, DataSource>;
