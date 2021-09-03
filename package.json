@@ -29,6 +29,7 @@
   "scripts": {
     "build:check": "tsc",
     "build": "npm run clean && microbundle build --compress --target node --raw --format modern,cjs",
+    "prepublish": "npm run build",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "eslint --fix --ext .ts src/",
     "clean:build": "rimraf dist",
