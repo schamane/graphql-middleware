@@ -1,4 +1,4 @@
 export * from './middleware';
 export * from './defaults';
-export * from './grapqhl';
+export * from './graphql';
 export * from './models/auth';
