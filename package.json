@@ -1,0 +1,79 @@
+{
+  "name": "@schamane/graphql-middleware",
+  "version": "3.2.9",
+  "type": "module",
+  "source": "src/index.ts",
+  "module": "dist/graphql-middleware.modern.js",
+  "main": "dist/graphql-middleware.cjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@graphql-tools/schema": "^8.2.0",
+    "@graphql-tools/utils": "^8.2.1",
+    "apollo-datasource": "^3.1.0",
+    "apollo-server": "^3.3.0",
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0",
+    "graphql": "^15.5.2",
+    "graphql-subscriptions": "^1.2.1",
+    "graphql-ws": "^5.4.1",
+    "isomorphic-ws": "^4.0.1",
+    "lodash": "^4.17.21",
+    "source-map-support": "^0.5.19",
+    "subscriptions-transport-ws": "^0.9.19",
+    "ws": "^8.2.1"
+  },
+  "scripts": {
+    "build:check": "tsc",
+    "build": "npm run clean && microbundle build --compress --target node --raw --format modern,cjs",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint --ext .ts src/",
+    "lint:fix": "eslint --fix --ext .ts src/",
+    "clean:build": "rimraf dist",
+    "clean:build:cache": "rimraf build .buildcache",
+    "clean": "npm run -s clean:build && npm run -s clean:build:cache"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.4",
+    "@types/helmet": "0.0.48",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.7.10",
+    "@types/ws": "^7.4.7",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-recommended": "^4.1.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "microbundle": "^0.13.3",
+    "nodemon": "^2.0.12",
+    "prettier-eslint": "^13.0.0",
+    "rimraf": "^3.0.2",
+    "typescript": "4.4.2"
+  },
+  "peerDependencies": {
+    "ws": "^8.2.1",
+    "apollo-datasource": "^3.1.0",
+    "apollo-server": "^3.3.0",
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0"
+  },
+  "keywords": [
+    "components",
+    "framework",
+    "grapqhl",
+    "websockets",
+    "apollo-graphql"
+  ],
+  "authors": [
+    "Nazar Kulyk (https://github.com/schamane/graphql-middleware/contributors)"
+  ],
+  "repository": "schamane/graphql-middleware"
+}
