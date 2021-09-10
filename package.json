@@ -1,6 +1,6 @@
 {
   "name": "@schamane/graphql-middleware",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "type": "module",
   "source": "src/index.ts",
   "module": "dist/graphql-middleware.modern.js",
