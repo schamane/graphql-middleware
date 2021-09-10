@@ -18,13 +18,15 @@
     "apollo-server-core": "^3.3.0",
     "apollo-server-express": "^3.3.0",
     "graphql": "^15.5.3",
+    "graphql-redis-subscriptions": "^2.4.0",
     "graphql-subscriptions": "^1.2.1",
-    "graphql-ws": "^5.4.1",
+    "graphql-ws": "^5.5.0",
+    "ioredis": "^4.27.9",
     "isomorphic-ws": "^4.0.1",
     "lodash": "^4.17.21",
-    "source-map-support": "^0.5.19",
+    "source-map-support": "^0.5.20",
     "subscriptions-transport-ws": "^0.9.19",
-    "ws": "^8.2.1"
+    "ws": "^8.2.2"
   },
   "scripts": {
     "build:check": "tsc",
@@ -39,8 +41,9 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.4",
     "@types/helmet": "0.0.48",
+    "@types/ioredis": "^4.27.2",
     "@types/lodash": "^4.14.172",
-    "@types/node": "^16.7.13",
+    "@types/node": "^16.9.1",
     "@types/ws": "^7.4.7",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
@@ -59,11 +62,14 @@
     "typescript": "4.4.2"
   },
   "peerDependencies": {
-    "ws": "^8.2.1",
     "apollo-datasource": "^3.1.0",
     "apollo-server": "^3.3.0",
     "apollo-server-core": "^3.3.0",
-    "apollo-server-express": "^3.3.0"
+    "apollo-server-express": "^3.3.0",
+    "graphql-redis-subscriptions": "^2.4.0",
+    "graphql-subscriptions": "^1.2.1",
+    "ioredis": "^4.27.9",
+    "ws": "^8.2.2"
   },
   "keywords": [
     "components",
@@ -73,7 +79,7 @@
     "apollo-graphql"
   ],
   "authors": [
-    "Nazar Kulyk (https://github.com/schamane/graphql-middleware/contributors)"
+    "Nazar Kulyk (https://github.com/schamane)"
   ],
   "repository": "schamane/graphql-middleware"
 }
