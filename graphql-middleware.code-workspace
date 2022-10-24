@@ -1,10 +1,14 @@
 {
 	"folders": [
 		{
-			"path": "."
+			"path": "./",
+			"name": "Graphql Middleware"
 		}
 	],
 	"settings": {
-		"typescript.tsdk": "node_modules/typescript/lib"
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"typescript.referencesCodeLens.showOnAllFunctions": true,
+		"typescript.referencesCodeLens.enabled": true,
+		"typescript.implementationsCodeLens.enabled": true
 	}
 }

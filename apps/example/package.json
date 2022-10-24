@@ -1,0 +1,29 @@
+{
+    "name": "@schamane/graphql-middleware-example",
+    "version": "1.0.0",
+    "description": "Node.js TypeScript Graphql Middleware Example",
+    "author": "Nazar Kulyk <schamane@gmail.com>",
+    "repository": "git@github.com/schamane/graphql-middleware.git",
+    "type": "module",
+    "exports": {
+        "./*": "./dist/*"
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "dist/*"
+            ]
+        }
+    },
+    "scripts": {
+        "clean": "rimraf dist"
+    },
+    "nodemonConfig": {
+        "params": "--max_old_space_size=200 -r source-map-support/register",
+        "delay": "2500"
+    },
+    "engines": {
+        "node": ">=16",
+        "npm": "^8"
+    }
+}

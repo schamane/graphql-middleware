@@ -1,9 +1,0 @@
-.buildcache
-.github
-.vscode
-src
-.eslintrc
-dist/test
-*.code-workspace
-package-lock.json
-tsconfig.json

@@ -1,31 +1,32 @@
 {
     "editor.formatOnSave": false,
     "files.exclude": {
-      "**/.DS_Store": true,
-      "**/node_modules/": true,
-      "**/build/**/*.js.map": {
-        "when": "$(basename).js"
-      },
-      "**/build/**/*.js": {
-        "when": "$(basename).ts"
-      }
+        "**/.DS_Store": true,
+        "**/node_modules/": true,
+        "packages/**/node_modules/": true
     },
     "search.exclude": {
-      "build": true,
-      "node_modules": true
+        "lib": true,
+        "build": true,
+        "node_modules": true
     },
     "eslint.validate": [
-      "typescript"
+        "typescript",
+        "javascript"
     ],
     "[json]": {
-      "editor.formatOnSave": true,
+        "editor.formatOnSave": true,
     },
     "[html]": {
-      "editor.formatOnSave": true,
+        "editor.formatOnSave": true,
     },
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
-      "source.fixAll.tslint": false
+        "source.fixAll.eslint": true,
+        "source.fixAll.tslint": false
     },
-    "typescript.tsdk": "node_modules/typescript/lib"
-  }
+    "eslint.workingDirectories": [
+        { "pattern": "./packages/*/" },
+        { "pattern": "./libs/*/" },
+        { "pattern": "./apps/*/" }
+    ]
+}
