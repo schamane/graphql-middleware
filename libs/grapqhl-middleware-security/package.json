@@ -1,0 +1,83 @@
+{
+    "name": "@schamane/graphql-middleware-security",
+    "version": "1.0.0",
+    "description": "Security Middleware for common cloud projects",
+    "author": "Nazar Kulyk <schamane@gmail.com>",
+    "repository": "git@github.com/schamane/graphql-middleware.git",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "source": "src/index.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/graphql-middleware-security-index.cjs",
+            "import": "./dist/graphql-middleware-security-index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./cors": {
+            "require": "./dist/graphql-middleware-security-cors.cjs",
+            "import": "./dist/graphql-middleware-security-cors.js",
+            "types": "./dist/cors.d.ts"
+        },
+        "./mockStrategy": {
+            "require": "./dist/graphql-middleware-security-mockStrategy.cjs",
+            "import": "./dist/graphql-middleware-security-mockStrategy.js",
+            "types": "./dist/mockStrategy.d.ts"
+        }
+    },
+    "main": "./dist/graphql-middleware-security-index.cjs",
+    "module": "./dist/graphql-middleware-security-index.js",
+    "types": "./dist/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/index.d.ts"
+            ],
+            "cors": [
+                "./dist/cors.d.ts"
+            ],
+            "mockStrategy": [
+                "./dist/mockStrategy.d.ts"
+            ]
+        }
+    },
+    "scripts": {
+        "clean:build": "rimraf dist",
+        "clean:build:cache": "rimraf build .buildcache",
+        "clean": "npm run -s clean:build && npm run -s clean:build:cache",
+        "build:index": "LIB_NAME=index vite build",
+        "build:cors": "LIB_NAME=cors vite build",
+        "build:mockStrategy": "LIB_NAME=mockStrategy vite build",
+        "build": "npm run -s clean && vite build",
+        "watch": "npm run -s clean:build && npm run -s build && microbundle -w -f esm,cjs src/index.ts",
+        "lint": "eslint --ext .ts src/",
+        "lint:fix": "eslint --fix --ext .ts src/",
+        "start": "node -r source-map-support/register --max_old_space_size=128 dist/app.js",
+        "dev": "nodemon --trace-warnings -r source-map-support/register dist/app.js"
+    },
+    "peerDependencies": {
+        "cors": "*",
+        "passport": "*"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "passport": "^0.6.0",
+        "source-map-support": "^0.5.21"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.12",
+        "@types/passport": "^1.0.11",
+        "rimraf": "^3.0.2",
+        "tsconfig": "*",
+        "eslint-config-custom": "*"
+    },
+    "nodemonConfig": {
+        "params": "--max_old_space_size=200 -r source-map-support/register",
+        "delay": "2500"
+    },
+    "engines": {
+        "node": ">=16",
+        "npm": "^8"
+    }
+}

@@ -16,10 +16,39 @@
         }
     },
     "scripts": {
-        "clean": "rimraf dist"
+        "clean:build": "rimraf dist",
+        "clean:build:cache": "rimraf build .buildcache",
+        "clean": "npm run -s clean:build && npm run -s clean:build:cache",
+        "build": "npm run -s clean && tsc",
+        "watch": "npm run -s clean:build && npm run -s build && tsc -w",
+        "lint": "eslint --ext .ts src/",
+        "lint:fix": "eslint --fix --ext .ts src/",
+        "start": "node -r dotenv/config -r source-map-support/register --max_old_space_size=128 dist/app.js",
+        "dev": "nodemon --trace-warnings -r dotenv/config -r source-map-support/register dist/app.js"
+    },
+    "dependencies": {
+        "@schamane/graphql-middleware": "^1.0.0",
+        "@schamane/graphql-middleware-security": "^1.0.0",
+        "@schamane/graphql-auth": "^1.0.0",
+        "@apollo/server": "^4.0.3",
+        "graphql": "^16.6.0",
+        "graphql-tag": "^2.12.6",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "passport": "^0.6.0",
+        "source-map-support": "^0.5.21"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.14",
+        "@types/node": "^18.11.4",
+        "@types/passport": "^1.0.11",
+        "@graphql-tools/utils": "^8.12.0",
+        "nodemon": "^2.0.20",
+        "rimraf": "^3.0.2",
+        "tsconfig": "*",
+        "eslint-config-custom": "*"
     },
     "nodemonConfig": {
-        "params": "--max_old_space_size=200 -r source-map-support/register",
         "delay": "2500"
     },
     "engines": {

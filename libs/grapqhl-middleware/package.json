@@ -1,0 +1,77 @@
+{
+    "name": "@schamane/graphql-middleware",
+    "version": "1.0.0",
+    "description": "Grapqhl Middleware for common cloud projects",
+    "author": "Nazar Kulyk <schamane@gmail.com>",
+    "repository": "git@github.com/schamane/graphql-middleware.git",
+    "files": [
+        "dist"
+    ],
+    "type": "module",
+    "source": "src/index.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/graphql-middleware-index.cjs",
+            "import": "./dist/graphql-middleware-index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./tools": {
+            "require": "./dist/graphql-middleware-index2.cjs",
+            "import": "./dist/graphql-middleware-index2.js",
+            "types": "./dist/tools/index.d.ts"
+        }
+    },
+    "main": "./dist/graphql-middleware-index.cjs",
+    "module": "./dist/graphql-middleware-index.js",
+    "types": "./dist/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/index.d.ts"
+            ],
+            "tools": [
+                "./dist/tools/index.d.ts"
+            ]
+        }
+    },
+    "scripts": {
+        "clean:build": "rimraf dist",
+        "clean:build:cache": "rimraf build .buildcache",
+        "clean": "npm run -s clean:build && npm run -s clean:build:cache",
+        "build:ts": "npm run -s clean && tsc",
+        "build": "npm run -s clean && vite build",
+        "watch": "npm run -s clean:build && vite watch",
+        "watch:ts": "npm run -s clean && tsc -w",
+        "lint": "eslint --ext .ts src/",
+        "lint:fix": "eslint --fix --ext .ts src/",
+        "start": "node -r source-map-support/register --max_old_space_size=128 dist/app.js",
+        "dev": "nodemon --trace-warnings -r source-map-support/register dist/app.js"
+    },
+    "peerDependencies": {
+        "@apollo/server": "*",
+        "@graphql-tools/schema": "*",
+        "graphql": "*"
+    },
+    "dependencies": {
+        "@apollo/server": "^4.0.2",
+        "@graphql-tools/schema": "^9.0.4",
+        "graphql": "^16.6.0",
+        "source-map-support": "^0.5.21"
+    },
+    "devDependencies": {
+        "@graphql-tools/utils": "^8.12.0",
+        "@types/node": "^18.11.4",
+        "@types/express": "^4.17.14",
+        "rimraf": "^3.0.2",
+        "tsconfig": "*",
+        "eslint-config-custom": "*"
+    },
+    "nodemonConfig": {
+        "params": "--max_old_space_size=200 -r source-map-support/register",
+        "delay": "2500"
+    },
+    "engines": {
+        "node": ">=16",
+        "npm": "^8"
+    }
+}
